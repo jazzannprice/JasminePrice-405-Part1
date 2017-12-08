@@ -1,8 +1,4 @@
-//https://github.com/stavrosdidakis/DAT-GAD-405_2017
-//https://p5js.org
-
-//DAT405 / GAD405
-//04_Linear Motion
+//JasminePrice - 405 - Creative Coding Project
 
 //Setup of variables
 let x;
@@ -27,9 +23,9 @@ function draw(){
   rect(0, 0,width, height);
   //background(0);
   move();
-  display();
+  show();
 }
-
+// The function that controls the movement of the ball
 function move(){
   y = y + 1; //Add +1 pixel to the position of x (for every frame)
   //console.log(x);
@@ -48,8 +44,8 @@ function move(){
   console.log(x+mapSin);
   //We only change the position of x (y is static to middle)
 }
-
-function display(){
+// The function that displays and controls the ellipse parameters
+function show(){
   fill(0, 0, 255);
   ellipse(x+mapSin, y, ellipseSize, ellipseSize);
   ellipse(x+mapSin2, y, ellipseSize, ellipseSize);
