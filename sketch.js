@@ -20,22 +20,24 @@ function setup(){
   x = width/2;
   y = 0;
   noStroke();
-
 }
 
 function draw(){
   fill(160, 20);
-  rect(0,0,width, height);
+  rect(0, 0,width, height);
   //background(0);
-  //Add +1 pixel to the position of x (for every frame)
-  y = y + 1;
+  move();
+  display();
+}
+
+function move(){
+  y = y + 1; //Add +1 pixel to the position of x (for every frame)
   //console.log(x);
   //If the position of the ellipse reaches the limit of the canvas,
   //then reset its position to 0 - ellipse appears from the left again
   if (y > 841){ //425 comes from 400 (width) + 25 (half size of ellipse)
     y = -25; //instead reset to 0, we reset to 0-25 (half size of ellipse)
   }
-
   angleX+=0.02; // speed of the wave
   sinValue = sin(angleX);
   mapSin = map(sinValue, -1, 1, -100, 100); // amplitude
@@ -45,9 +47,10 @@ function draw(){
 
   console.log(x+mapSin);
   //We only change the position of x (y is static to middle)
+}
 
+function display(){
   fill(0, 0, 255);
   ellipse(x+mapSin, y, ellipseSize, ellipseSize);
   ellipse(x+mapSin2, y, ellipseSize, ellipseSize);
-
 }
